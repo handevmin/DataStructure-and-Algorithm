@@ -6,7 +6,6 @@ index = 0
 
 def combination(lst, n):
     ret = []
-    if n > len(lst): return ret
 
     if n == 1:
         for i in lst:
