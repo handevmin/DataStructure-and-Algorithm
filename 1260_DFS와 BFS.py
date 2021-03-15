@@ -10,18 +10,12 @@ for i in range(M):
         graph[x].append(y)
 
 visited = [False]*(N+1)
-def dfs(v, graph):
+def dfs(v):
     visited[v]= True
     print(v)
-    for i in graph:
-        print("graph",graph[i])
-        if graph[i].isdigit():
-            print("awefawef")
-            return
-        for j in graph[i]:
-            print(j)
+    if v in graph:
+        for j in graph[v]:
             if visited[j] != True:
-                print(j, graph[i])
-                dfs(j, graph[i])
+                dfs(j)
 
-dfs(V, graph)
+dfs(V)
