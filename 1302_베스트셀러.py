@@ -1,8 +1,17 @@
 import sys
 
 amount = int(sys.stdin.readline())
-sell = []
+sell = {}
+bestseller = []
 for i in range(amount):
-    sell.append(sys.stdin.readline().rstrip())
+    book = sys.stdin.readline().rstrip()
+    if book not in sell:
+        sell[book] = 1
+    else:
+        sell[book] +=1
 
-print()
+for j in sell:
+    if sell[j] == max(sell.values()):
+        bestseller.append(j)
+bestseller.sort()
+print(bestseller[0])
