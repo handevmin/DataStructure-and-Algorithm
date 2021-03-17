@@ -1,11 +1,12 @@
 import heapq
+import sys
 
-n = int(input())
+n = int(sys.stdin.readline())
 heap = []
 result = []
 
 for i in range(n):
-    data = int(input())
+    data = int(sys.stdin.readline())
     if data == 0:
         if heap == []:
             result.append(0)
