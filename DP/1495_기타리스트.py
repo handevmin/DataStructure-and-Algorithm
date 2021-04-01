@@ -2,21 +2,32 @@ import sys
 
 N, S, M = map(int, sys.stdin.readline().split())
 control = list(map(int, sys.stdin.readline().split()))
-volumn_list = [-1]
-def dfs(volumn, level):
+
+volumn_list = [False] * (M+1)
+volumn_list[S] = True
+update_volumn_list = [False] * (M+1)
+result =0
+
+def dfs(volumn_list, level):
+    global result
+    update_volumn_list = [False] * (M+1)
     if level == N:
-        volumn_list.append(volumn)
+        for i in reversed(range(len(volumn_list))):
+            if volumn_list[i] == True:
+                result = i
+                return
+            else:
+                result = -1
         return
 
-    for i in range(level, len(control)):
-        if volumn+control[i] > M:
-            pass
-        else:
-            dfs(volumn+control[i], level+1)
+    for i, v in enumerate(volumn_list):
+        if v == True:
+            if 0 <= i+control[level] <= M :
+                update_volumn_list[i+control[level]] = True
+            if 0 <= i-control[level] <= M :
+                update_volumn_list[i-control[level]] = True
+    dfs(update_volumn_list, level+1)
 
-        if volumn-control[i] < 0:
-            return
-        else:
-            dfs(volumn-control[i], level+1)
-dfs(S, 0)
-print(max(volumn_list))
+
+dfs(volumn_list, 0)
+print(result)
