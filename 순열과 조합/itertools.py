@@ -1,3 +1,5 @@
+import itertools
+
 combination_result = []
 permutation_result = []
 items = list(range(4))
