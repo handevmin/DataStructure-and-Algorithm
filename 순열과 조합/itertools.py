@@ -11,5 +11,5 @@ for j in list(itertools.permutations(items, 2)):
     permutation_result.append(i)
 
 print("combination result: ", combination_result)
-print()
+
 print("permutation result: ", permutation_result)
