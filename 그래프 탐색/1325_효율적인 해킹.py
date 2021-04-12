@@ -26,8 +26,6 @@ def bfs(v):
                     count += 1
                     queue.append(i)
 
-
-
 for i in graph:
     visited = [False]*(N+1)
     count = 0
