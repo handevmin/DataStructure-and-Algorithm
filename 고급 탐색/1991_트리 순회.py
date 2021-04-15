@@ -6,8 +6,6 @@ class Node:
         self.left = left
         self.right = right
 
-
-
 def pre_order(node):
     print(node.data, end ='')
     if node.left != '.':
